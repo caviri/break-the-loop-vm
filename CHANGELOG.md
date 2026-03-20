@@ -11,4 +11,8 @@ from [Conventional Commits](https://www.conventionalcommits.org/).
 
 - **devcontainer**: Fix for container
 
+### Features
+
+- **src**: Added basic server script
+
 
