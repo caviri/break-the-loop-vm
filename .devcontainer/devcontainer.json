@@ -1,0 +1,27 @@
+{
+  "name": "AI-Ready Dev Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "devcontainer",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "postStartCommand": "echo 'SSH and entrypoint managed by entrypoint.sh'",
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.eol": "\n",
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "Anthropic.claude-code",
+        "OpenAI.chatgpt",
+        "Google.gemini-cli-vscode-ide-companion",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "editorconfig.editorconfig",
+        "github.vscode-github-actions"
+      ]
+    }
+  }
+}

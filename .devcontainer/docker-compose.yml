@@ -1,0 +1,22 @@
+services:
+  devcontainer:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - "${SSH_PORT:-2222}:22"
+      - "${DEV_PORT:-8888}:8888"
+    volumes:
+      - ..:/workspaces/${COMPOSE_PROJECT_NAME:-project}:cached
+      - ./persist/config:/home/vscode/.config
+      - ./persist/local-share:/home/vscode/.local/share
+      - ./persist/cache:/home/vscode/.cache
+      - ./persist/pi:/home/vscode/.pi
+      - ./persist/ssh:/home/vscode/.ssh
+    env_file:
+      - ../.env
+    security_opt:
+      - seccomp=unconfined
+      - apparmor=unconfined
+    command: >
+      bash -c "sudo mkdir -p /run/sshd && sudo /usr/sbin/sshd && chmod 700 ~/.ssh 2>/dev/null; chmod 600 ~/.ssh/authorized_keys 2>/dev/null; true && exec sleep infinity"

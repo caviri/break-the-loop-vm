@@ -1,0 +1,11 @@
+.devcontainer/persist/
+.git/
+node_modules/
+.env
+.env.local
+*.log
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+dist/
+build/
