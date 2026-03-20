@@ -31,9 +31,8 @@ RUN pip install pre-commit
 USER vscode
 WORKDIR /workspaces
 
-RUN mkdir -p ~/.npm-global \
+RUN mkdir -p ~/.npm-global ~/.local/bin ~/.local/state \
     && npm config set prefix '~/.npm-global' \
-    && echo 'export PATH=~/.npm-global/bin:$PATH' >> ~/.bashrc
+    && echo 'export PATH="$HOME/.local/bin:$HOME/.npm-global/bin:$PATH"' >> ~/.bashrc
 
 RUN npm install -g git-cliff @openai/codex @mariozechner/pi-coding-agent @google/gemini-cli
-RUN curl -fsSL https://claude.ai/install.sh | bash

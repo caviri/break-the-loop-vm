@@ -3,8 +3,8 @@
   "dockerComposeFile": "docker-compose.yml",
   "service": "devcontainer",
   "remoteUser": "vscode",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "postStartCommand": "echo 'SSH and entrypoint managed by entrypoint.sh'",
+  "workspaceFolder": "/workspaces/project",
+  "postStartCommand": "for d in ~/.config ~/.local ~/.cache ~/.pi ~/.ssh; do sudo mkdir -p \"$d\"; sudo chown -R vscode:vscode \"$d\"; done; sudo mkdir -p /run/sshd && sudo /usr/sbin/sshd && chmod 700 ~/.ssh 2>/dev/null; chmod 600 ~/.ssh/authorized_keys 2>/dev/null; true",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {
