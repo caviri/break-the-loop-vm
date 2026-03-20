@@ -13,6 +13,7 @@ from [Conventional Commits](https://www.conventionalcommits.org/).
 
 ### Features
 
+- **src**: Enhance poster canvas with interactive panels and documentation
 - **src**: Added basic server script
 
 

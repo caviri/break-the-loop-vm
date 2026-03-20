@@ -13,9 +13,27 @@ body {
   overflow: auto;
 }
 
-canvas {
+#canvas-wrapper {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+#canvas-wrapper canvas {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
   cursor: crosshair;
+}
+
+#canvas-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/abstract-background-wall-concept-with-copy-space.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
 /* --- Overlay panels (outside canvas, fixed to window corners) --- */

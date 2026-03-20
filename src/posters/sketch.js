@@ -2,7 +2,8 @@ const POSTER_W = 1080;
 const POSTER_H = 1440;
 
 function setup() {
-  createCanvas(POSTER_W, POSTER_H);
+  const cnv = createCanvas(POSTER_W, POSTER_H);
+  cnv.parent("canvas-wrapper");
   background(255);
   Panels.init();
 }
